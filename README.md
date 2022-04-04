@@ -9,7 +9,7 @@ A website that can generate a password for between 8 and 128 characters. It can 
 * JS
 
 ## Website
-https://tevinalvord.github.io/password-generator
+https://tevinalvord.github.io/password-generator/
 
 ## Contribution
 Made with ❤️ by Tevin Alvord
