@@ -1,22 +1,12 @@
 // Assignment code here
-
-numbers: "0123456789";
 var lowerCase = "abcdefghijklmnopqrstuvwxyz";
 var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var specialCharacters = "!#$%&'()*+,-./:;<=>?@[]^_`{|}~" + '\u005C' + '\u0022';
 
 var generatePassword = function() {
     var password = "";
+    var newPassword = "";
     var passwordLength = window.prompt("Your password can be 8 to 128 characters long. Please enter a number 8 to 128.");
-
-    // for (i = 0; i < passwordLength; i++) {
-    //     if (passwordLength >= 8 && passwordLength <= 128) {
-    //         password += (Math.floor(Math.random() * 10))
-    //     } else {
-    //         window.alert("Not a valid input. Please enter a number between 8 and 128.");
-    //         generatePassword();
-    //     }
-    // }
     
     if (passwordLength >= 8 && passwordLength <= 128) {
         var includeLwrCs = window.confirm("Would you like to include lowercase letters?");
@@ -28,7 +18,21 @@ var generatePassword = function() {
             if (includeNums) {
                 for (i = 0; i < passwordLength; i++) {
                     password += (Math.floor(Math.random() * 10))
-                    console.log(password);
+                    }
+            }
+            if (includeLwrCs) {
+                for (i = 0; i < passwordLength; i++) {
+                    password +=  lowerCase.charAt(Math.floor(Math.random() * lowerCase.length));
+                    }
+            }
+            if (includeUprCs) {
+                for (i = 0; i < passwordLength; i++) {
+                    password +=  upperCase.charAt(Math.floor(Math.random() * upperCase.length));
+                    }
+            }
+            if (includeSpclCh) {
+                for (i = 0; i < passwordLength; i++) {
+                    password +=  specialCharacters.charAt(Math.floor(Math.random() * specialCharacters.length));
                     }
             }
         } else {
@@ -39,7 +43,16 @@ var generatePassword = function() {
         window.alert("Not a valid input. Please enter a number between 8 and 128.");
         return false;
       }   
-    return password;
+
+      console.log(password);
+
+    for (i = 0; i < passwordLength; i++) {
+        newPassword += password.charAt(Math.floor(Math.random() * password.length));
+    }
+
+    console.log(newPassword);
+
+    return newPassword;
 };
 
 
